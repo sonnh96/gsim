@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "retrodesk"
+version = "0.1.0"
+description = "Desktop libretro front-end with a Generation 3 Pokemon AutoBot and Pokedex"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+requires-python = ">=3.11"
+dependencies = [
+    "pysdl2>=0.9.16",
+    "pysdl2-dll>=2.30",
+    "imgui-bundle>=1.92",
+    "PyOpenGL>=3.1.7",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+retrodesk = "retrodesk.app.main:main"
+retrodesk-cli = "retrodesk.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
